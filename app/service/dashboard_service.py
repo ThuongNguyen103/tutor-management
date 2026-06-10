@@ -1,6 +1,7 @@
 from datetime import date, datetime
 from typing import Optional # Thêm import này nếu chưa có
 
+import pytz
 from sqlalchemy import func
 from sqlalchemy.orm import Session
 
@@ -23,7 +24,8 @@ class DashboardService:
             .count()
         )
 
-        today_weekday = datetime.now().isoweekday()
+        tz_vn = pytz.timezone('Asia/Ho_Chi_Minh')
+        today_weekday = datetime.now(tz_vn).isoweekday()
 
         today_classes = (
             db.query(Schedule)
@@ -34,7 +36,8 @@ class DashboardService:
             .count()
         )
 
-        today = date.today()
+        tz_vn = pytz.timezone('Asia/Ho_Chi_Minh')
+        today = datetime.now(tz_vn).date()
         
         # Mặc định mục tiêu thống kê là năm và tháng hiện tại
         target_year = today.year
