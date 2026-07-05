@@ -6,7 +6,7 @@ from sqlalchemy.orm import declarative_base, sessionmaker
 # Nếu không tìm thấy (khi chạy ở máy cá nhân), sẽ tự động dùng chuỗi localhost hiện tại của bạn.
 DATABASE_URL = os.getenv(
     "DATABASE_URL",
-    "postgresql+psycopg2://tutor:tutor123@localhost:5432/tutor_management"
+    "postgresql+psycopg2://neondb_owner:npg_z3WS1HsypBVY@ep-round-meadow-ateqx6f0-pooler.c-9.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
 )
 
 # 2. Xử lý sửa đổi nhỏ cho PostgreSQL trên một số môi trường Cloud
